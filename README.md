@@ -26,26 +26,52 @@
 
 <p align="center">The result is a hybrid, integrated ARIMA (2, 0, 2) - EGARCH (2, 2) model that works to predict the average of the time series along with its volatility over time. Ultimately, providing a framework that captures the data's trajectory and extent of its variability.</p>
 
-# **ARIMA (Autoregressive Integrated Moving Average) Model**
+<h3 align="center">ARIMA (Autoregressive Integrated Moving Average) Model</h3> 
 
-$(1 - \phi_1 L - \phi_2 L^2 - \ldots - \phi_p L^p)(1 - L)^d Y_t = (1 + \theta_1 L + \theta_2 L^2 + \ldots + \theta_q L^q) \epsilon_t$
+<p align="center">$(1 - \phi_1 L - \phi_2 L^2 - \ldots - \phi_p L^p)(1 - L)^d Y_t = (1 + \theta_1 L + \theta_2 L^2 + \ldots + \theta_q L^q) \epsilon_t$</p> 
 
-$\text{where:}$
+<p align="center">$\text{where:}$</p> 
 
-$Y_t$: The value of the series at time $t$, which is the observation we aim to model or forecast.
+<p align="center">$Y_t$: The value of the series at time $t$, which is the observation we aim to model or forecast.</p> 
 
-$\phi_1, \phi_2, \ldots, \phi_p$: Autoregressive coefficients that quantify the influence of the past $p$ values of the series on its current value.
+<p align="center">$\phi_1, \phi_2, \ldots, \phi_p$: Autoregressive coefficients that quantify the influence of the past $p$ values of the series on its current value.</p> 
 
-$L$: Lag operator, such that applying $L$ to $Y_t$ yields $L Y_t = Y_{t-1}$, the previous value of the series.
+<p align="center">$L$: Lag operator, such that applying $L$ to $Y_t$ yields $L Y_t = Y_{t-1}$, the previous value of the series.</p> 
 
-$p$: Order of the autoregressive part, indicating the number of lagged observations of the series included in the model.
+<p align="center">$p$: Order of the autoregressive part, indicating the number of lagged observations of the series included in the model.</p> 
 
-$(1 - L)^d$: Differencing operator applied $d$ times to the series to achieve stationarity, which is often necessary for ARIMA models.
+<p align="center">$(1 - L)^d$: Differencing operator applied $d$ times to the series to achieve stationarity, which is often necessary for ARIMA models.</p> 
 
-$d$: Order of differencing, representing how many times the data has been lagged or differenced to remove non-stationarity.
+<p align="center">$d$: Order of differencing, representing how many times the data has been lagged or differenced to remove non-stationarity.</p> 
 
-$\theta_1, \theta_2, \ldots, \theta_q$: Moving average coefficients that quantify the influence of past $q$ forecast errors on the current value of the series.
+<p align="center">$\theta_1, \theta_2, \ldots, \theta_q$: Moving average coefficients that quantify the influence of past $q$ forecast errors on the current value of the series.</p> 
 
-$q$: Order of the moving average part, indicating the number of lagged forecast errors included in the model.
+<p align="center">$q$: Order of the moving average part, indicating the number of lagged forecast errors included in the model.</p> 
 
-$\epsilon_t$: Error term at time $t$, which is a stochastic term that accounts for the randomness or unpredictability in the series at time $t$.
+<p align="center">$\epsilon_t$: Error term at time $t$, which is a stochastic term that accounts for the randomness or unpredictability in the series at time $t$.</p> 
+
+<h3 align="center"ARIMAX (Autoregressive Integrated Moving Average with eXogenous variables) Model</h3> 
+
+<p align="center">$Y_t = c + \sum_{i=1}^{p} \phi_i Y_{t-i} + \sum_{j=1}^{q} \theta_j \varepsilon_{t-j} + \beta_1 X_{1,t} + \beta_2 X_{2,t} + \varepsilon_t$</p> 
+
+<p align="center">where:</p> 
+
+<p align="center">- $Y_t$: The dependent variable representing the value of the time series at time $t$. It is the variable that the model aims to forecast or explain.</p> 
+
+<p align="center">- $c$: A constant term or intercept in the equation, representing the baseline value of $Y_t$ when all other variables are equal to zero.</p> 
+
+<p align="center">- $\phi_i$: Coefficients for the autoregressive (AR) terms. These coefficients measure the impact of the past values of the series on its current value.</p> 
+<p align="center">Specifically, $\phi_i$ is the coefficient of the $i$-th lagged value of $Y_t$, indicating how much a change in $Y_{t-i}$ affects $Y_t$.</p> 
+
+<p align="center">- $Y_{t-i}$: The $i$-th lagged value of the time series, meaning the value of $Y$ at time $t-i$. These lagged values are used to capture the influence of past values of the time series on its current value.</p> 
+
+<p align="center">- $\theta_j$: Coefficients for the moving average (MA) terms. These coefficients represent the impact of past forecast errors on the current value of the series. Each $\theta_j$ is associated with the $j$-th lagged forecast error.</p> 
+
+<p align="center">- $\varepsilon_{t-j}$: The forecast error at time $t-j$, which is the difference between the observed value and the predicted value at that lag. It represents the unpredicted part of $Y$ at time $t-j$.</p> 
+
+<p align="center">- $\beta_1, \beta_2$: Coefficients for the exogenous variables $X_{1,t}$ and $X_{2,t}$. These coefficients measure the impact of the external variables on the dependent variable $Y_t$. They show how much a unit change in each exogenous variable affects $Y_t$.</p> 
+
+<p align="center">- $X_{1,t}, X_{2,t}$: The exogenous variables at time $t$. In this model, $X_{1,t}$ represent hurricane events, capturing their impact on $Y_t$, while $X_{2,t}$ represent economic events, indicating how economic factors at time $t$ affect $Y_t$.</p> 
+
+<p align="center">- $\varepsilon_t$: The error term at time $t$, accounting for random fluctuations or noise in $Y_t$ that are not explained by the autoregressive, moving average, or exogenous components of the model. This term ensures that the model accounts for stochastic variations in the time series.</p> 
+
