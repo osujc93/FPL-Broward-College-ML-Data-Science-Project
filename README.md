@@ -25,3 +25,27 @@
 <p align="center">However, the result from both models shows heteroscedasticity (volatility) in the residuals (difference between actual values & predicted values) that the models are not able to capture. This is proven by the results of McCleod-Li tests performed on the residuals of both ARIMA (2, 0, 2) and ARIMAX (2, 0, 2) models. The McCleod-Li test is used to detect nonlinearity and conditional heteroscedasticity (changes in variance) in a time series. To address this, we extended our models to include GARCH (Generalized AutoRegressive Conditional Heteroskedasticity) & GARCH AR-X (AutoRegressive with eXogenous variables) variants to model the predicted volatility from the actual volatility in the time series and compare the results. Grid-Search provided the following parameters: GARCH (2, 1), EGARCH (2, 2), TGARCH (1, 2, 2), GARCH AR-X (2, 1), EGARCH AR-X (2, 0), and TGARCH AR-X (2, 2, 2). We found that GARCH and its variants perform better at modeling volatility when we incorporate AR-X components into the mean equation of the model based on the evaluated metrics. However, the coefficients of the EGARCH (2, 2) show to be most beneficial in understanding the dynamics of the data due to their statistical significance. This means that volatility of the time series is best modeled as a function of both its own lagged values and the lagged squared errors up to two periods ago. To further validate the performance of the GARCH and GARCH AR-X models, we conducted Expanding Window Cross-Validation and Purged Cross-Validation. These methods evaluate volatility under different market conditions over time.</p>
 
 <p align="center">The result is a hybrid, integrated ARIMA (2, 0, 2) - EGARCH (2, 2) model that works to predict the average of the time series along with its volatility over time. Ultimately, providing a framework that captures the data's trajectory and extent of its variability.</p>
+
+# **ARIMA (Autoregressive Integrated Moving Average) Model**
+
+$(1 - \phi_1 L - \phi_2 L^2 - \ldots - \phi_p L^p)(1 - L)^d Y_t = (1 + \theta_1 L + \theta_2 L^2 + \ldots + \theta_q L^q) \epsilon_t$
+
+$\text{where:}$
+
+$Y_t$: The value of the series at time $t$, which is the observation we aim to model or forecast.
+
+$\phi_1, \phi_2, \ldots, \phi_p$: Autoregressive coefficients that quantify the influence of the past $p$ values of the series on its current value.
+
+$L$: Lag operator, such that applying $L$ to $Y_t$ yields $L Y_t = Y_{t-1}$, the previous value of the series.
+
+$p$: Order of the autoregressive part, indicating the number of lagged observations of the series included in the model.
+
+$(1 - L)^d$: Differencing operator applied $d$ times to the series to achieve stationarity, which is often necessary for ARIMA models.
+
+$d$: Order of differencing, representing how many times the data has been lagged or differenced to remove non-stationarity.
+
+$\theta_1, \theta_2, \ldots, \theta_q$: Moving average coefficients that quantify the influence of past $q$ forecast errors on the current value of the series.
+
+$q$: Order of the moving average part, indicating the number of lagged forecast errors included in the model.
+
+$\epsilon_t$: Error term at time $t$, which is a stochastic term that accounts for the randomness or unpredictability in the series at time $t$.
