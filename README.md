@@ -50,7 +50,7 @@
 
 <p align="center">$\epsilon_t$: Error term at time $t$, which is a stochastic term that accounts for the randomness or unpredictability in the series at time $t$.</p> 
 
-<h3 align="center"ARIMAX (Autoregressive Integrated Moving Average with eXogenous variables) Model</h3> 
+<h3 align="center">ARIMAX (Autoregressive Integrated Moving Average with eXogenous variables) Model</h3> 
 
 <p align="center">$Y_t = c + \sum_{i=1}^{p} \phi_i Y_{t-i} + \sum_{j=1}^{q} \theta_j \varepsilon_{t-j} + \beta_1 X_{1,t} + \beta_2 X_{2,t} + \varepsilon_t$</p> 
 
