@@ -52,7 +52,7 @@
 
 <h3 align="center">ARIMAX (Autoregressive Integrated Moving Average with eXogenous variables) Model</h3> 
 
-<p align="center">$Y_t = c + \sum_{i=1}^{p} \phi_i Y_{t-i} + \sum_{j=1}^{q} \theta_j \varepsilon_{t-j} + \beta_1 X_{1,t} + \beta_2 X_{2,t} + \varepsilon_t$</p> 
+<p align="center">$Y_t = c + \sum_ {i=1}^{p} \phi_i Y_{t-i} + \sum_ {j=1}^{q} \theta_j \varepsilon_{t-j} + \beta_1 X_{1,t} + \beta_2 X_{2,t} + \varepsilon_t$</p> 
 
 <p align="center">where:</p> 
 
