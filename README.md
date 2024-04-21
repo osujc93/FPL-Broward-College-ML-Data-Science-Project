@@ -1,8 +1,6 @@
-# FPL-Broward-College-ML-Data-Science-Project
-
-### A Comparative Analysis of ARIMA(X) Models and AR-X GARCH Models Used to Predict Historical Energy Data in South Florida 
-
-### Research Statement 
+<h1 align="center">FPL-Broward-College-ML-Data-Science-Project</h1>
+<h2 align="center">A Comparative Analysis of ARIMA(X) Models and AR-X GARCH Models Used to Predict Historical Energy Data in South Florida</h2>
+<p align="center">Research Statement</p> 
 
  
 
