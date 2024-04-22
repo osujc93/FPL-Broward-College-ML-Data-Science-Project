@@ -75,7 +75,7 @@
 
 <p align="center">$\varepsilon_t$: The error term at time $t$, accounting for random fluctuations or noise in $Y_t$ that are not explained by the autoregressive, moving average, or exogenous components of the model. This term ensures that the model accounts for stochastic variations in the time series.</p> 
 
-<h3 align="center">GARCH (Generalized Autoregressive Conditional Heteroskedasticity)**</h3> 
+<h3 align="center">GARCH (Generalized Autoregressive Conditional Heteroskedasticity)</h3> 
 
 <p align="center">The $\text{Autoregressive Conditional Heteroskedasticity (ARCH)}$ model is a foundational model used to describe the time-varying volatility in financial time series data. The basic ARCH model equation is given by:</p> 
 
