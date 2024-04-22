@@ -56,22 +56,111 @@
 
 <p align="center">where:</p> 
 
-<p align="center">- $Y_t$: The dependent variable representing the value of the time series at time $t$. It is the variable that the model aims to forecast or explain.</p> 
+<p align="center">$Y_t$: The dependent variable representing the value of the time series at time $t$. It is the variable that the model aims to forecast or explain.</p> 
 
-<p align="center">- $c$: A constant term or intercept in the equation, representing the baseline value of $Y_t$ when all other variables are equal to zero.</p> 
+<p align="center">$c$: A constant term or intercept in the equation, representing the baseline value of $Y_t$ when all other variables are equal to zero.</p> 
 
-<p align="center">- $\phi_i$: Coefficients for the autoregressive (AR) terms. These coefficients measure the impact of the past values of the series on its current value.</p> 
+<p align="center">$\phi_i$: Coefficients for the autoregressive (AR) terms. These coefficients measure the impact of the past values of the series on its current value.</p> 
 <p align="center">Specifically, $\phi_i$ is the coefficient of the $i$-th lagged value of $Y_t$, indicating how much a change in $Y_{t-i}$ affects $Y_t$.</p> 
 
-<p align="center">- $Y_{t-i}$: The $i$-th lagged value of the time series, meaning the value of $Y$ at time $t-i$. These lagged values are used to capture the influence of past values of the time series on its current value.</p> 
+<p align="center">$Y_{t-i}$: The $i$-th lagged value of the time series, meaning the value of $Y$ at time $t-i$. These lagged values are used to capture the influence of past values of the time series on its current value.</p> 
 
-<p align="center">- $\theta_j$: Coefficients for the moving average (MA) terms. These coefficients represent the impact of past forecast errors on the current value of the series. Each $\theta_j$ is associated with the $j$-th lagged forecast error.</p> 
+<p align="center">$\theta_j$: Coefficients for the moving average (MA) terms. These coefficients represent the impact of past forecast errors on the current value of the series. Each $\theta_j$ is associated with the $j$-th lagged forecast error.</p> 
 
-<p align="center">- $\varepsilon_{t-j}$: The forecast error at time $t-j$, which is the difference between the observed value and the predicted value at that lag. It represents the unpredicted part of $Y$ at time $t-j$.</p> 
+<p align="center">$\varepsilon_{t-j}$: The forecast error at time $t-j$, which is the difference between the observed value and the predicted value at that lag. It represents the unpredicted part of $Y$ at time $t-j$.</p> 
 
-<p align="center">- $\beta_1, \beta_2$: Coefficients for the exogenous variables $X_{1,t}$ and $X_{2,t}$. These coefficients measure the impact of the external variables on the dependent variable $Y_t$. They show how much a unit change in each exogenous variable affects $Y_t$.</p> 
+<p align="center">$\beta_1, \beta_2$: Coefficients for the exogenous variables $X_{1,t}$ and $X_{2,t}$. These coefficients measure the impact of the external variables on the dependent variable $Y_t$. They show how much a unit change in each exogenous variable affects $Y_t$.</p> 
 
-<p align="center">- $X_{1,t}, X_{2,t}$: The exogenous variables at time $t$. In this model, $X_{1,t}$ represent hurricane events, capturing their impact on $Y_t$, while $X_{2,t}$ represent economic events, indicating how economic factors at time $t$ affect $Y_t$.</p> 
+<p align="center">$X_{1,t}, X_{2,t}$: The exogenous variables at time $t$. In this model, $X_{1,t}$ represent hurricane events, capturing their impact on $Y_t$, while $X_{2,t}$ represent economic events, indicating how economic factors at time $t$ affect $Y_t$.</p> 
 
-<p align="center">- $\varepsilon_t$: The error term at time $t$, accounting for random fluctuations or noise in $Y_t$ that are not explained by the autoregressive, moving average, or exogenous components of the model. This term ensures that the model accounts for stochastic variations in the time series.</p> 
+<p align="center">$\varepsilon_t$: The error term at time $t$, accounting for random fluctuations or noise in $Y_t$ that are not explained by the autoregressive, moving average, or exogenous components of the model. This term ensures that the model accounts for stochastic variations in the time series.</p> 
+
+<h3 align="center">GARCH (Generalized Autoregressive Conditional Heteroskedasticity)**</h3> 
+
+<p align="center">The $\text{Autoregressive Conditional Heteroskedasticity (ARCH)}$ model is a foundational model used to describe the time-varying volatility in financial time series data. The basic ARCH model equation is given by:</p> 
+
+<p align="center">$
+\sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \epsilon_{t-i}^2
+$</p> 
+
+<p align="center">$\text{where:}$</p> 
+
+<p align="center">$\sigma_t^2$: The conditional variance at time $t$, which represents the variance expected given the information up to time $t-1$.</p> 
+
+<p align="center">$\omega$: The constant term representing the average impact on the variance that is not captured by the past squared residuals. This term is expected to be positive.</p> 
+
+<p align="center">$\alpha_i$: The coefficients of the ARCH terms that measure the impact of past squared residuals on the current conditional variance. These terms capture the short-run persistence in volatility.</p> 
+
+<p align="center">$\epsilon_{t-i}^2$: The squared residuals from the mean model at lag $i$. These are the past shocks to the series that are included to model the volatility clustering commonly observed in financial time series data.</p> 
+
+<p align="center">$q$: The order of the ARCH terms, indicating the number of lagged squared residual terms included in the model.</p> 
+
+<p align="center">$\text{Transformation to GARCH Model:}$</p> 
+
+<p align="center">$\sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \epsilon_{t-i}^2 + \sum_{j=1}^{p} \beta_j \sigma_{t-j}^2$</p> 
+
+<p align="center">$\text{where:}$</p> 
+
+<p align="center">$\sigma_t^2$: The conditional variance at time $t$, which is the variance expected given the information up to time $t-1$.</p> 
+
+<p align="center">$\omega$: The constant term representing the average impact on the variance that is not captured by the past squared residuals or past variances. This term is expected to be positive.</p> 
+
+<p align="center">$\alpha_i$: The coefficients of the ARCH terms that measure the impact of past squared residuals on the current conditional variance. These terms capture the short-run persistence in volatility.</p> 
+
+<p align="center">$\epsilon_{t-i}^2$: The squared residuals from the mean model at lag $i$. These are the past shocks to the series that are included to model the volatility clustering commonly observed in financial time series data.</p> 
+
+<p align="center">$\beta_j$: The GARCH coefficients that measure the impact of past conditional variances on the current conditional variance. These terms capture the long-run persistence in volatility.</p> 
+
+<p align="center">$\sigma_{t-j}^2$: The conditional variances at lags $j$, which represent past predictions of the variance. They help to model the persistence of volatility shocks.</p> 
+
+<p align="center">$p$: The order of the GARCH terms, indicating the number of lagged conditional variance terms included in the model.</p> 
+
+<p align="center">$q$: The order of the ARCH terms, indicating the number of lagged squared residual terms included in the model.</p> 
+
+<h3 align="center">EGARCH (Exponential Generalized Autoregressive Conditional Heteroskedasticity)</h3> 
+
+<p align="center">$\log(\sigma_t^2) = \omega + \sum_{i=1}^{q} \alpha_i g(\epsilon_{t-i}) + \sum_{j=1}^{p} \beta_j \log(\sigma_{t-j}^2)$ \\
+$g(\epsilon_t) = \theta \epsilon_t + \gamma ( |\epsilon_t| - E[|\epsilon_t|] )$</p> 
+
+<p align="center">$\text{where:}$</p> 
+
+<p align="center">$\sigma_t^2$: The conditional variance at time $t$, representing the variance forecast given all past information.</p> 
+
+<p align="center">$\omega$: A constant term which affects the level of the log-variance.</p> 
+
+<p align="center">$\alpha_i$: Coefficients of the lagged terms in the model that capture the effect of past shocks (residuals) on current volatility.</p> 
+
+<p align="center">$\beta_j$: Coefficients of the lagged conditional variances which capture the persistence in volatility.</p> 
+
+<p align="center">$\epsilon_t$: The residual from the mean model at time $t$, representing the difference between the actual value and the predicted value by the model.</p> 
+
+<p align="center">$\theta, \gamma$: Parameters capturing the asymmetry in the impact of positive and negative shocks on volatility.</p> 
+
+<p align="center">$|\epsilon_t|$: The absolute value of the residual at time $t$, representing the magnitude of the shock irrespective of its direction.</p> 
+
+<p align="center">$E[|\epsilon_t|]$: The expected value of the absolute residual, representing a normal level of shock magnitude.</p> 
+
+<p align="center">$p$: The order of the lagged conditional variance terms in the model.</p> 
+
+<p align="center">$q$: The order of the lagged shock (residual) terms in the model.</p> 
+
+<h3 align="center">TGARCH (Threshold Generalized Autoregressive Conditional Heteroskedasticity)</h3> 
+
+<p align="center">$\sigma_t^2 = \omega + \left( \alpha + \gamma I_{[\epsilon_{t-1} < 0]} \right) \epsilon_{t-1}^2 + \beta \sigma_{t-1}^2$</p> 
+
+<p align="center">$\text{where:}$</p> 
+
+<p align="center">$\sigma_t^2$: The conditional variance at time $t$, representing the expected level of variance at time $t$ based on all available information up to time $t-1$.</p> 
+
+<p align="center">$\omega$: A constant term that affects the level of the conditional variance, ensuring that the variance has a positive value even in the absence of large shocks or past high volatility.</p> 
+
+<p align="center">$\alpha$: A coefficient that captures the impact of the squared residuals from the previous time period on the current conditional variance. It reflects how past volatility influences current volatility.</p> 
+
+<p align="center">$\beta$: A coefficient for the past conditional variance, indicating the persistence of volatility over time. High values suggest that volatility shocks have long-lasting effects.</p> 
+
+<p align="center">$\epsilon_t$: The residual from the mean model at time $t$, representing the difference between the observed value and the value predicted by the model.</p> 
+
+<p align="center">$\gamma$: A coefficient that captures the asymmetry in the impact of shocks. It specifically modifies the influence of negative shocks on the current volatility.</p> 
+
+<p align="center">$I_{[\epsilon_{t-1} < 0]}$: An indicator function that is equal to 1 if the previous period's shock was negative ($\epsilon_{t-1} < 0$), and 0 otherwise. This function allows the model to differentiate the impact of positive and negative shocks on volatility.</p> 
 
