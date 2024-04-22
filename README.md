@@ -79,9 +79,7 @@
 
 <p align="center">The $\text{Autoregressive Conditional Heteroskedasticity (ARCH)}$ model is a foundational model used to describe the time-varying volatility in financial time series data. The basic ARCH model equation is given by:</p> 
 
-<p align="center">$
-\sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \epsilon_{t-i}^2
-$</p> 
+<p align="center">$\sigma_t^2 = \omega + \sum_{i=1}^{q} \alpha_i \epsilon_{t-i}^2$</p> 
 
 <p align="center">$\text{where:}$</p> 
 
