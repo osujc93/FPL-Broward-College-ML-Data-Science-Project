@@ -1,6 +1,5 @@
 <h1 align="center">Broward College ML/Data Science Project</h1>
 <h2 align="center">A Comparative Analysis of ARIMA(X) Models and AR-X GARCH Models Used to Predict Historical Energy Data in South Florida</h2>
-<h3 align="center">Research Statement</h3> 
 
  
 
